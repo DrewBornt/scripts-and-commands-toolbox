@@ -1,0 +1,2 @@
+Search-ADAccount –AccountInActive -UsersOnly –TimeSpan 30:00:00:00 –ResultPageSize 2000 –ResultSetSize $null | ?{$_.Enabled –eq $True} | Select-Object Name | Export-CSV “C:\logs\inactiveusers.csv” –NoTypeInformation
+Send-MailMessage -from "<inactiveaccounts@COMPANYNAME.com>" -to "<email@tosendto.com>" -Subject "COMPANYNAME Inactive Accounts" -Attachment "C:\logs\Inactiveusers.CSV" -SmtpServer "smpt.server.here"

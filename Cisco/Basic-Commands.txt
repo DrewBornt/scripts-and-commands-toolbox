@@ -1,0 +1,27 @@
+en # brings the enable prompt, enter password if there is one
+
+config t # enters configure mode
+
+int gi1/2 # allows configuration on the 2nd port
+
+no shut # turns the port on
+ip address xxx.xxx.xxx.xxx 255.255.255.0 #Assigns the IP address to the port and the subnet mask
+nameif inside #tells the firewall this is the internal network, autosets security settings
+exit #returns to the 'config t' prompt
+http server enable 5506 #to allow the ASDM software to connect on port 5506
+http 192.168.1.0 255.255.255.0 inside 
+
+username ciscoadmin password password #sets the user to 'ciscoadmin' and their password to 'password', adjust as necessary
+
+show interfaces switchport
+show interfaces switchport module #
+
+configure terminal
+
+interface Gi#/#/##
+
+switchport trunk native vlan #
+switchport trunk allowed vlan #
+switchport trunk allowed vlan #
+
+interface Gi#/#/##
