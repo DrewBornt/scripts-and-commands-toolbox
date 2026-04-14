@@ -255,24 +255,24 @@ function Convert-EvtxToExcel {
             $fileEvents = @()
            
             # Extract detailed information from each event
-            foreach ($event in $events) {
+            foreach ($_event in $events) {
                 $eventObject = [PSCustomObject]@{
-                    'TimeCreated'        = $event.TimeCreated
-                    'Id'                 = $event.Id
-                    'Level'              = $event.LevelDisplayName
-                    'LogName'            = $event.LogName
-                    'ProviderName'       = $event.ProviderName
-                    'Message'            = $event.Message
-                    'MachineName'        = $event.MachineName
-                    'UserId'             = $event.UserId
-                    'ProcessId'          = $event.ProcessId
-                    'ThreadId'           = $event.ThreadId
-                    'TaskDisplayName'    = $event.TaskDisplayName
-                    'OpcodeName'         = $event.OpcodeName
-                    'KeywordsDisplayNames' = ($event.KeywordsDisplayNames -join '; ')
-                    'RecordId'           = $event.RecordId
-                    'ActivityId'         = $event.ActivityId
-                    'RelatedActivityId'  = $event.RelatedActivityId
+                    'TimeCreated'        = $_event.TimeCreated
+                    'Id'                 = $_event.Id
+                    'Level'              = $_event.LevelDisplayName
+                    'LogName'            = $_event.LogName
+                    'ProviderName'       = $_event.ProviderName
+                    'Message'            = $_event.Message
+                    'MachineName'        = $_event.MachineName
+                    'UserId'             = $_event.UserId
+                    'ProcessId'          = $_event.ProcessId
+                    'ThreadId'           = $_event.ThreadId
+                    'TaskDisplayName'    = $_event.TaskDisplayName
+                    'OpcodeName'         = $_event.OpcodeName
+                    'KeywordsDisplayNames' = ($_event.KeywordsDisplayNames -join '; ')
+                    'RecordId'           = $_event.RecordId
+                    'ActivityId'         = $_event.ActivityId
+                    'RelatedActivityId'  = $_event.RelatedActivityId
                     'Source_File'        = $file.Name
                     'Source_Path'        = $file.DirectoryName
                 }
